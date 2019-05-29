@@ -1,13 +1,13 @@
 package com.renanparis.chat.model;
 
-public class Posts {
+public class Message {
 
     private String text;
-    private int id;
+    private Integer id;
 
 
 
-    public Posts(String text, int id) {
+    public Message(String text, int id) {
         this.text = text;
         this.id = id;
     }

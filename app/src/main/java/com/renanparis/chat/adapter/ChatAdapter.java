@@ -10,17 +10,17 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.renanparis.chat.R;
-import com.renanparis.chat.model.Posts;
+import com.renanparis.chat.model.Message;
 
 import java.util.List;
 
 public class ChatAdapter extends BaseAdapter {
 
-    private List<Posts> posts;
+    private List<Message> posts;
     private Context context;
     private int idClient;
 
-    public ChatAdapter(List<Posts> posts, Context context, int idClient) {
+    public ChatAdapter(List<Message> posts, Context context, int idClient) {
         this.posts = posts;
         this.context = context;
         this.idClient = idClient;
@@ -32,7 +32,7 @@ public class ChatAdapter extends BaseAdapter {
     }
 
     @Override
-    public Posts getItem(int position) {
+    public Message getItem(int position) {
         return posts.get(position);
     }
 
@@ -47,13 +47,13 @@ public class ChatAdapter extends BaseAdapter {
                 .inflate(R.layout.item_list_chat, parent, false);
 
         TextView fieldPost = view.findViewById(R.id.item_chat_text);
-        Posts post = getItem(position);
-        if (idClient != post.getId()){
+        Message message = getItem(position);
+        if (idClient != message.getId()){
 
             view.setBackgroundColor(Color.CYAN);
         }
 
-        fieldPost.setText(post.getText());
+        fieldPost.setText(message.getText());
 
         return view;
     }
